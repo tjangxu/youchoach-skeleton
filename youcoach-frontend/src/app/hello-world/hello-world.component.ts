@@ -8,14 +8,13 @@ import {HelloWorldService} from './hello-world.service';
 })
 export class HelloWorldComponent implements OnInit {
 
-  private message;
+  message;
 
   constructor(private helloWorldService: HelloWorldService) {
   }
 
   ngOnInit() {
     this.helloWorldService.getMessage().subscribe(result => {
-      console.log(result);
       this.message = result;
     });
   }

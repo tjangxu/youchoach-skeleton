@@ -8,6 +8,7 @@ import {LoginComponent} from './login/login.component';
 import {AppRoutingModule} from './app-routing.module';
 import {HelloWorldComponent} from './hello-world/hello-world.component';
 import {AuthenticationInterceptor} from './authentication/authentication.interceptor';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,12 @@ import {AuthenticationInterceptor} from './authentication/authentication.interce
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true}],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
