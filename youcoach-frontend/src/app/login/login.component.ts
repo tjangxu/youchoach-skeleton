@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   title = 'youcoach';
+  error;
   loginForm;
 
   constructor(private formBuilder: FormBuilder, private authenticationService: AuthenticationService, private router: Router) {
@@ -24,7 +25,10 @@ export class LoginComponent implements OnInit {
 
   onSubmit(loginData) {
     this.authenticationService.login(loginData)
-      .subscribe(_ => this.router.navigate(['/hello-world']));
+      .subscribe(
+        (_ => this.router.navigate(['/hello-world'])),
+        (_ => this.error = true)
+      );
     this.loginForm.reset();
   }
 }

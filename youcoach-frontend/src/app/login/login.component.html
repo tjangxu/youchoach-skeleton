@@ -10,5 +10,6 @@
       <input id="password" type="password" formControlName="password"/>
     </div>
     <button class="button" type="submit">Login</button>
+    <p *ngIf="error" class="error">Wrong username or password</p>
   </form>
 </div>

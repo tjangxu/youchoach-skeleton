@@ -15,15 +15,15 @@ export class AuthenticationService {
   login(loginData: any) {
     return this.loginService.login(loginData)
       .pipe(tap(response => {
-        localStorage.setItem(this.tokenKey, response.headers.get('Authorization').replace('Bearer' , '').trim());
+        sessionStorage.setItem(this.tokenKey, response.headers.get('Authorization').replace('Bearer' , '').trim());
       }));
   }
 
   getToken() {
-    return localStorage.getItem(this.tokenKey);
+    return sessionStorage.getItem(this.tokenKey);
   }
 
   isLoggedIn() {
-    return localStorage.getItem(this.tokenKey) !== null;
+    return sessionStorage.getItem(this.tokenKey) !== null;
   }
 }
