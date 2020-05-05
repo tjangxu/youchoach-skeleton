@@ -5,6 +5,7 @@ import com.switchfully.youcoach.security.authentication.user.SecuredUser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -21,9 +22,11 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     private static final int TOKEN_TIME_TO_LIVE  = 3600000;
 
     private final AuthenticationManager authenticationManager;
+    private final String jwtSecret;
 
-    public JwtAuthenticationFilter(AuthenticationManager authenticationManager) {
+    public JwtAuthenticationFilter(AuthenticationManager authenticationManager, String jwtSecret) {
         this.authenticationManager = authenticationManager;
+        this.jwtSecret = jwtSecret;
 
         setFilterProcessesUrl("/login");
     }
@@ -47,7 +50,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response,
                                             FilterChain filterChain, Authentication authentication) {
         var token = Jwts.builder()
-                .signWith(Keys.hmacShaKeyFor("eShVkYp3s6v9y$B&E)H@McQfTjWnZq4t7w!z%C*F-JaNdRgUkXp2s5u8x/A?D(G+".getBytes()), SignatureAlgorithm.HS512)
+                .signWith(Keys.hmacShaKeyFor(jwtSecret.getBytes()), SignatureAlgorithm.HS512)
                 .setHeaderParam("typ", "JWT")
                 .setIssuer("secure-api")
                 .setAudience("secure-app")
