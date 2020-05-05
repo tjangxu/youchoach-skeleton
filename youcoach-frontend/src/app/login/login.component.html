@@ -10,7 +10,7 @@
         <label for="password">Password</label>
         <input id="password" class="form-control" size="50" type="password" formControlName="password"/>
       </div>
-      <p *ngIf="error" class="alert alert-warning">Wrong username or password</p>
+      <p *ngIf="error" class="alert alert-danger">Wrong username or password</p>
       <button class="btn btn-primary" type="submit">Login</button>
     </form>
   </div>

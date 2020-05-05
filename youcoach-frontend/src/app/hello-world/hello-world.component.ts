@@ -8,15 +8,17 @@ import {HelloWorldService} from './hello-world.service';
 })
 export class HelloWorldComponent implements OnInit {
 
-  message;
+  message: string;
+  error: boolean;
 
   constructor(private helloWorldService: HelloWorldService) {
   }
 
   ngOnInit() {
-    this.helloWorldService.getMessage().subscribe(result => {
-      this.message = result;
-    });
+    this.helloWorldService.getMessage().subscribe(
+      (result => this.message = result),
+      (_ => this.error = true)
+    );
   }
 
 }

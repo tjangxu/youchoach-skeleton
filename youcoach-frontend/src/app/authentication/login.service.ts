@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
+import {Observable, of, throwError} from 'rxjs';
 import {catchError, map, tap} from 'rxjs/operators';
 
 @Injectable({
@@ -14,14 +14,14 @@ export class LoginService {
 
   login(loginData): Observable<any> {
     return this.http.post<any>(this.url, loginData, {observe: 'response'}).pipe(
-      catchError(this.handleError<any>('login'))
+      catchError(this.handleError('login'))
     );
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
+  private handleError(operation = 'operation') {
+    return (error: any) => {
       console.error(error);
-      return of(result as T);
+      return throwError(error);
     };
   }
 }
