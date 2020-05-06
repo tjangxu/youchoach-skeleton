@@ -26,4 +26,8 @@ export class AuthenticationService {
   isLoggedIn() {
     return sessionStorage.getItem(this.tokenKey) !== null;
   }
+
+  logout() {
+    sessionStorage.removeItem(this.tokenKey);
+  }
 }
