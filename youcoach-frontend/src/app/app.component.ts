@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from './authentication/authentication.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,9 @@ import {AuthenticationService} from './authentication/authentication.service';
 })
 export class AppComponent implements OnInit {
   username;
+  language = 'en';
 
-  constructor(private authenticationService: AuthenticationService) {
-
+  constructor(private authenticationService: AuthenticationService, private translate: TranslateService) {
   }
 
   ngOnInit(): void {
@@ -18,5 +19,13 @@ export class AppComponent implements OnInit {
     this.authenticationService.userLoggedIn$.subscribe(_ => {
       this.username = this.authenticationService.getUsername();
     });
+  }
+
+  switchLanguage(language: string) {
+    this.translate.use(language);
+    this.language = language;
+  }
+  currentLanguage() {
+    return this.language;
   }
 }

@@ -9,7 +9,6 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  title = 'Login';
   error;
   success;
   loginForm;

@@ -8,9 +8,13 @@
         <a class="nav-link" routerLink="/hello-world">Hello world</a>
       </li>
     </ul>
-    <div class="my-2 my-lg-0">
-      <div class="nav-item" *ngIf="username">Logged in as {{username}}</div>
-      <div class="nav-item" *ngIf="!username">Not logged in</div>
+    <div class="mr-2">
+      <div class="nav-item" *ngIf="username" translate [translateParams]="{username: username}">navbar.loggedin</div>
+      <div class="nav-item" *ngIf="!username" translate>navbar.loggedout</div>
+    </div>
+    <div class="btn-group mr-2">
+      <button [class.active]="currentLanguage() === 'en'" class="btn btn-primary nav-item" (click)="switchLanguage('en')">en</button>
+      <button [class.active]="currentLanguage() === 'nl '" class="btn btn-primary nav-item" (click)="switchLanguage('nl')">nl</button>
     </div>
   </nav>
   <router-outlet></router-outlet>
