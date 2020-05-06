@@ -1,6 +1,6 @@
 <div class="container">
   <nav class="navbar navbar-light bg-light navbar-expand-lg">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" routerLink="/login">Login</a>
       </li>
@@ -8,6 +8,10 @@
         <a class="nav-link" routerLink="/hello-world">Hello world</a>
       </li>
     </ul>
+    <div class="my-2 my-lg-0">
+      <div class="nav-item" *ngIf="username">Logged in as {{username}}</div>
+      <div class="nav-item" *ngIf="!username">Not logged in</div>
+    </div>
   </nav>
   <router-outlet></router-outlet>
 </div>
