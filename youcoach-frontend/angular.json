@@ -22,8 +22,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              { "glob": "**/translations-??.json",
-                "input": "./node_modules/youcoach-i18n/",
+              { "glob": "**/??.json",
+                "input": "./node_modules/youcoach-i18n/i18n/",
                 "output": "./assets/i18n/" }
             ],
             "styles": [
@@ -90,8 +90,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              { "glob": "**/translations-??.json",
-                "input": "./node_modules/youcoach-i18n/",
+              { "glob": "**/??.json",
+                "input": "./node_modules/youcoach-i18n/i18n/",
                 "output": "./assets/i18n/" }
             ],
             "styles": [
