@@ -6,7 +6,7 @@ The final project of the FEB2020 track will consist of building the You-Coach ap
 The You-Coach application is an idea of the Make It Happen foundation (https://www.make-it-happen.org/) 
 and aims to facilitate the peer-to-peer coaching sessions between students.
 
-*Philippe Lambilliotte* & *Nicolas Sougnez* will be you r product owners and explain their vision of the You-Coach application.
+*Philippe Lambilliotte* & *Nicolas Sougnez* will be your product owners and explain their vision of the You-Coach application.
 
 The plan is to launch the POC build by you in September as a pilot in some schools in Brussel.
 
@@ -54,6 +54,16 @@ The diagrams below are a materializitation of ou HLA phase. Feel free to challen
     - Evolving Domain model
     - C4 model (Context, Container, Component)
     - A build monitor dashboard
+    
+### Timing and agenda
+
+- Kickoff (8/5)
+- Sprint 1 (11/5 - 14/5)
+    - sprint review: 14/5 (14h-16h)
+- Sprint 2 (15/5 - 20/5)
+    - sprint review: 20/5 (14h-16h)
+- Sprint 3 (25/5 - 29/5)  
+    - Sprint review: 29/5 (9-11)   
 
 ### Technology constraints
 
@@ -74,14 +84,14 @@ The diagrams below are a materializitation of ou HLA phase. Feel free to challen
     - Correctly setup and handle the transactions.
     - Write your DDL (create tables,...) in a separate `.sql` file, which you also put under version control.
 - Think about security (Basic Auth. or JWT), but is doesn't have to be a priority.
-    - Maybe make it a separate technical story.
+- Use materialize CSS and Angular for the front-end    
 
 
 ## Functional Stories
 
 The functional requirements are written down as stories.
 
-- The functional analyst/Product owner will be available to answer all your questions 
+- The functional analyst/Product owner will be available to answer all your questions during the Scrum of Scrums
 - The functional analyst made some design decisions, if you want to challenge those, you always can. Come prepared though. :grin:
 
 ### Story 1: Register
